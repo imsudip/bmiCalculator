@@ -2,7 +2,6 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import 'package:bmi/results.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -61,7 +60,10 @@ class _BmiPageState extends State<BmiPage> {
         fontWeight: FontWeight.bold,
         fontSize: 50.0);
     TextStyle secondaryButtonColorStyle = TextStyle(
-        color: theme.accentColor, fontWeight: FontWeight.bold, fontSize: 26.0);
+        color: theme.accentColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 32,
+        height: 1);
     TextStyle primaryButtonStyle = TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.normal,
@@ -74,11 +76,14 @@ class _BmiPageState extends State<BmiPage> {
           child: Neumorphic(
             style: NeumorphicStyle(
                 shape: NeumorphicShape.flat,
+                boxShape:
+                    NeumorphicBoxShape.roundRect(BorderRadius.circular(25.0)),
                 depth: 4,
                 intensity: 0.4,
                 color: theme.baseColor),
-            boxShape: NeumorphicBoxShape.roundRect(
-                borderRadius: BorderRadius.circular(25.0)),
+
+            // boxShape: NeumorphicBoxShape.roundRect(
+            //     borderRadius: BorderRadius.circular(25.0)),
             padding: EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +109,6 @@ class _BmiPageState extends State<BmiPage> {
                     // height: 10.0,
                     style: SliderStyle(
                         depth: -5.0,
-                        borderRadius: 8.0,
                         accent: theme.accentColor,
                         variant: Colors.blueAccent),
                     // activeColor: Colors.orangeAccent,
@@ -141,18 +145,20 @@ class _BmiPageState extends State<BmiPage> {
                       margin: EdgeInsets.only(right: 10),
                       height: MediaQuery.of(context).size.height * 0.25,
                       child: NeumorphicButton(
-                        onClick: toggleGender,
+                        onPressed: toggleGender,
                         minDistance: 0,
                         style: NeumorphicStyle(
                             shape: NeumorphicShape.flat,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(25.0)),
                             depth: isMale ? 4 : -4,
                             intensity: 0.4,
                             color: isMale
                                 ? theme.baseColor
                                 : NeumorphicColors.embossMaxDarkColor
                                     .withOpacity(0.04)),
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            borderRadius: BorderRadius.circular(25.0)),
+                        // boxShape: NeumorphicBoxShape.roundRect(
+                        //     borderRadius: BorderRadius.circular(25.0)),
                         padding: EdgeInsets.all(10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -180,18 +186,20 @@ class _BmiPageState extends State<BmiPage> {
                       margin: EdgeInsets.only(left: 10),
                       height: MediaQuery.of(context).size.height * 0.25,
                       child: NeumorphicButton(
-                        onClick: toggleGender,
+                        onPressed: toggleGender,
                         minDistance: 0,
                         style: NeumorphicStyle(
                             shape: NeumorphicShape.flat,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(25.0)),
                             depth: !isMale ? 4 : -4,
                             intensity: 0.4,
                             color: !isMale
                                 ? theme.baseColor
                                 : NeumorphicColors.embossMaxDarkColor
                                     .withOpacity(0.04)),
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            borderRadius: BorderRadius.circular(25.0)),
+                        // boxShape: NeumorphicBoxShape.roundRect(
+                        //     borderRadius: BorderRadius.circular(25.0)),
                         padding: EdgeInsets.all(10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -232,11 +240,13 @@ class _BmiPageState extends State<BmiPage> {
                       child: Neumorphic(
                         style: NeumorphicStyle(
                             shape: NeumorphicShape.flat,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(25.0)),
                             depth: 4,
                             intensity: 0.4,
                             color: theme.baseColor),
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            borderRadius: BorderRadius.circular(25.0)),
+                        // boxShape: NeumorphicBoxShape.roundRect(
+                        //     borderRadius: BorderRadius.circular(25.0)),
                         //padding: EdgeInsets.all(10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -250,16 +260,20 @@ class _BmiPageState extends State<BmiPage> {
                                       text: "kg",
                                       style: boldNumber.copyWith(fontSize: 20))
                                 ])),
+                            SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Container(
-                                  height: 40,
-                                  width: 40,
+                                  height: 50,
+                                  width: 50,
                                   child: NeumorphicButton(
-                                    style: NeumorphicStyle(depth: 4),
-                                    onClick: weightDecrement,
-                                    boxShape: NeumorphicBoxShape.circle(),
+                                    padding: EdgeInsets.all(0),
+                                    style: NeumorphicStyle(
+                                        depth: 4,
+                                        boxShape: NeumorphicBoxShape.circle()),
+                                    onPressed: weightDecrement,
+                                    //boxShape: NeumorphicBoxShape.circle(),
                                     child: Center(
                                       child: Text(
                                         "-",
@@ -269,12 +283,15 @@ class _BmiPageState extends State<BmiPage> {
                                   ),
                                 ),
                                 Container(
-                                  height: 40,
-                                  width: 40,
+                                  height: 50,
+                                  width: 50,
                                   child: NeumorphicButton(
-                                    style: NeumorphicStyle(depth: 4),
-                                    onClick: weightIncrement,
-                                    boxShape: NeumorphicBoxShape.circle(),
+                                    padding: EdgeInsets.all(0),
+                                    style: NeumorphicStyle(
+                                        depth: 4,
+                                        boxShape: NeumorphicBoxShape.circle()),
+                                    onPressed: weightIncrement,
+                                    // boxShape: NeumorphicBoxShape.circle(),
                                     child: Center(
                                       child: Text(
                                         "+",
@@ -301,30 +318,35 @@ class _BmiPageState extends State<BmiPage> {
                             depth: 4,
                             intensity: 0.4,
                             color: theme.baseColor),
-                        boxShape: NeumorphicBoxShape.roundRect(
-                            borderRadius: BorderRadius.circular(25.0)),
+                        // boxShape: NeumorphicBoxShape.roundRect(
+                        //     borderRadius: BorderRadius.circular(25.0)),
                         padding: EdgeInsets.all(10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text('AGE', style: headlines),
                             Text.rich(TextSpan(
-                    text: "$age",
-                    style: boldNumber,
-                    children: [
-                      TextSpan(text: "yrs",style: boldNumber.copyWith(fontSize: 17) )
-                    ]
-                  )),
+                                text: "$age",
+                                style: boldNumber,
+                                children: [
+                                  TextSpan(
+                                      text: "yrs",
+                                      style: boldNumber.copyWith(fontSize: 17))
+                                ])),
+                            SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Container(
-                                  height: 40,
-                                  width: 40,
+                                  height: 50,
+                                  width: 50,
                                   child: NeumorphicButton(
-                                    style: NeumorphicStyle(depth: 4),
-                                    onClick: ageDecrement,
-                                    boxShape: NeumorphicBoxShape.circle(),
+                                    padding: EdgeInsets.all(0),
+                                    style: NeumorphicStyle(
+                                        depth: 4,
+                                        boxShape: NeumorphicBoxShape.circle()),
+                                    onPressed: ageDecrement,
+                                    //boxShape: NeumorphicBoxShape.circle(),
                                     child: Center(
                                       child: Text(
                                         "-",
@@ -334,12 +356,15 @@ class _BmiPageState extends State<BmiPage> {
                                   ),
                                 ),
                                 Container(
-                                  height: 40,
-                                  width: 40,
+                                  height: 50,
+                                  width: 50,
                                   child: NeumorphicButton(
-                                    style: NeumorphicStyle(depth: 4),
-                                    onClick: ageIncrement,
-                                    boxShape: NeumorphicBoxShape.circle(),
+                                    padding: EdgeInsets.all(0),
+                                    style: NeumorphicStyle(
+                                        depth: 4,
+                                        boxShape: NeumorphicBoxShape.circle()),
+                                    onPressed: ageIncrement,
+                                    //boxShape: NeumorphicBoxShape.circle(),
                                     child: Center(
                                       child: Text(
                                         "+",
@@ -361,13 +386,14 @@ class _BmiPageState extends State<BmiPage> {
                 margin: EdgeInsets.all(10),
                 child: NeumorphicButton(
                   // padding: EdgeInsets.all(8),
-                  boxShape: NeumorphicBoxShape.stadium(),
+                  //boxShape: NeumorphicBoxShape.stadium(),
                   style: NeumorphicStyle(
                       color: Colors.deepOrangeAccent,
                       shape: NeumorphicShape.concave,
                       intensity: 0.55,
-                      depth: -8),
-                  onClick: () => Navigator.push(
+                      depth: -8,
+                      boxShape: NeumorphicBoxShape.stadium()),
+                  onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ResultPage(
@@ -376,7 +402,7 @@ class _BmiPageState extends State<BmiPage> {
                               ))),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: 60,
                     child: Center(
                         child: Text(
                       "CALCULATE BMI",

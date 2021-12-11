@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       //   primarySwatch: Colors.blue,
       // ),
       home: NeumorphicTheme(
-        usedTheme: UsedTheme.LIGHT, //or DARK / SYSTEM
+        themeMode: ThemeMode.light,
         darkTheme: NeumorphicThemeData(
           baseColor: Color(0xff333333),
           accentColor: Colors.green,
